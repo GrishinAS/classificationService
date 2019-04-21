@@ -12,9 +12,17 @@ import java.util.List;
 
 @Service
 public class FetchingServiceImpl implements EntitiesFetchingService {
-    String uri = "http://10.91.45.196:8080/persistence/entities";
+    private String uri = "http://10.91.45.196:8080/persistence/entities";
+
+
     @Override
     public List<Entity> fetch() {
+        try {
+            uri = System.getenv("ENTITY_PERSISTENCE_SERVICE_URL");
+        }
+        catch (Exception e){
+            System.out.println("No ENTITY_PERSISTENCE_SERVICE_URL environment variable");
+        }
         RestTemplate restTemplate = new RestTemplate();
         ResponseEntity<List<Entity>> response = restTemplate.exchange(
                 uri,
