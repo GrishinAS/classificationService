@@ -2,13 +2,13 @@ package ru.innoreport.classification.models;
 
 public class Entity {
     private String name;
-    private String category;
+    private String email;
     private String address;
     private String[] tags;
 
-    public Entity(String name, String category, String address, String[] tags) {
+    public Entity(String name, String email, String address, String[] tags) {
         this.name = name;
-        this.category = category;
+        this.email = email;
         this.address = address;
         this.tags = tags;
     }
@@ -24,12 +24,12 @@ public class Entity {
         this.name = name;
     }
 
-    public String getCategory() {
-        return category;
+    public String getEmail() {
+        return email;
     }
 
-    public void setCategory(String category) {
-        this.category = category;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public String getAddress() {

@@ -10,6 +10,7 @@ import ru.innoreport.classification.service.ClassificationService;
 import ru.innoreport.classification.service.EntitiesFetchingService;
 
 import javax.annotation.PostConstruct;
+import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -24,17 +25,31 @@ public class ClassificationController {
     @Autowired
     EntitiesFetchingService entitiesFetchingService;
 
-    @RequestMapping(value = "/classify/{report_id}/{tags}", method = RequestMethod.GET)
-    public List<Entity> getReportsHistory(@PathVariable String report_id,
-                                          @PathVariable String[] tags){
-
+    @RequestMapping(value = "/classify/{tags}", method = RequestMethod.GET)
+    public List<Entity> getReportsHistory(@PathVariable String[] tags){
         if(entities!=null) return classificationService.map(entities,tags);
             else return null;
     }
 
+    @RequestMapping(value = "/test", method = RequestMethod.GET)
+    public String getReportsHistory(){
+        if(entities!=null) return "test passed";
+        else return null;
+    }
+
     @PostConstruct
     public void callDB() {
-        entities = entitiesFetchingService.fetch();
+        try {
+            entities = entitiesFetchingService.fetch();
+        }
+        catch (Exception e){
+            System.out.println("Data fetching error");
+
+            entities = new ArrayList<>();
+            entities.add(new Entity("Hospital","sobaka@sobaka.pes","Pushkina 1", new String[]{"MEDICINE","HEALTH"}));
+            entities.add(new Entity("Electrition Station","power@rangers.com","Petushki 1", new String[]{"ELECTRICITY"}));
+        }
+
     }
 
 }
