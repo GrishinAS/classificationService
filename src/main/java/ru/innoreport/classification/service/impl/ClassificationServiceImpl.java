@@ -11,7 +11,6 @@ import java.util.stream.Collectors;
 public class ClassificationServiceImpl implements ClassificationService {
     @Override
     public List<Entity> map(List<Entity> entities, String[] tags) {
-        Map<String,Entity> tagsEntitiesMap = new HashMap<>();
 
         List<Entity> result = new ArrayList<>();
         for(String reportTag :tags){
@@ -19,9 +18,7 @@ public class ClassificationServiceImpl implements ClassificationService {
                 String[] entityTags = entity.getTags();
                 for(String entityTag :entityTags){
                     if(entityTag.equals(reportTag)){
-
                         result.add(entity);
-
                     }
                 }
             }

@@ -26,15 +26,9 @@ public class ClassificationController {
     EntitiesFetchingService entitiesFetchingService;
 
     @RequestMapping(value = "/classify/{tags}", method = RequestMethod.GET)
-    public List<Entity> getReportsHistory(@PathVariable String[] tags){
+    public List<Entity> getMappedEntities(@PathVariable String[] tags){
         if(entities!=null) return classificationService.map(entities,tags);
             else return null;
-    }
-
-    @RequestMapping(value = "/test", method = RequestMethod.GET)
-    public String getReportsHistory(){
-        if(entities!=null) return "test passed";
-        else return null;
     }
 
     @PostConstruct
