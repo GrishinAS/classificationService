@@ -17,7 +17,7 @@ public class ClassificationServiceImpl implements ClassificationService {
             for(Entity entity :entities){
                 String[] entityTags = entity.getTags();
                 for(String entityTag :entityTags){
-                    if(entityTag.equals(reportTag)){
+                    if(entityTag.toUpperCase().equals(reportTag)){
                         result.add(entity);
                     }
                 }

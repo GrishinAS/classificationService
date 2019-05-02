@@ -40,8 +40,8 @@ public class ClassificationController {
             System.out.println("Data fetching error");
 
             entities = new ArrayList<>();
-            entities.add(new Entity("Hospital","sobaka@sobaka.pes","Pushkina 1", new String[]{"MEDICINE","HEALTH"}));
-            entities.add(new Entity("Electrition Station","power@rangers.com","Petushki 1", new String[]{"ELECTRICITY"}));
+            entities.add(new Entity("132", "Hospital","sobaka@sobaka.pes","Pushkina 1", new String[]{"MEDICINE","HEALTH"}));
+            entities.add(new Entity("133", "Electrition Station","power@rangers.com","Petushki 1", new String[]{"ELECTRICITY"}));
         }
 
     }

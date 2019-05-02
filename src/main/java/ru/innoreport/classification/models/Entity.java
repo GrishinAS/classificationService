@@ -1,12 +1,14 @@
 package ru.innoreport.classification.models;
 
 public class Entity {
+    private String eid;
     private String name;
     private String email;
     private String address;
     private String[] tags;
 
-    public Entity(String name, String email, String address, String[] tags) {
+    public Entity(String eid, String name, String email, String address, String[] tags) {
+        this.eid = eid;
         this.name = name;
         this.email = email;
         this.address = address;
@@ -46,5 +48,13 @@ public class Entity {
 
     public void setTags(String[] tags) {
         this.tags = tags;
+    }
+
+    public String getEid() {
+        return eid;
+    }
+
+    public void setEid(String eid) {
+        this.eid = eid;
     }
 }
